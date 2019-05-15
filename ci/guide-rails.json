@@ -189,6 +189,14 @@
 				"run_after": [
 					"Build"
 				],
+				"job_steps": [
+					{
+						"name": "Look around",
+						"definition": "Look around",
+						"command": "ls -l ${PKG_BASE_DIR}\nls -l ${PKG_BASE_DIR}/*\nls -l ${PKG_BASE_DIR}/*/*\n",
+						"properties": null
+					}
+				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
