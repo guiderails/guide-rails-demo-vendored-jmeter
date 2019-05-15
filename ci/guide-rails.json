@@ -204,13 +204,7 @@
 				"code_analysis": null
 			}
 		},
-		"default_properties": [
-			{
-				"name": "vendor.version",
-				"value": "5.1.1",
-				"type": "string"
-			}
-		],
+		"default_properties": [],
 		"deployment_files": [],
 		"application_init": {
 			"command": "",
