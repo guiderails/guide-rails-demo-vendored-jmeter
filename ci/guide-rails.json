@@ -122,12 +122,42 @@
 				"packages": [
 					{
 						"name": "((application.name))",
-						"dependencies": [],
+						"dependencies": [
+							"jdk"
+						],
 						"downloads": [],
 						"files": [
 							"((application.name))*"
 						],
 						"package_install_command": "",
+						"installed_path": ""
+					},
+					{
+						"name": "apache-jmeter",
+						"dependencies": [
+							"jdk"
+						],
+						"downloads": [
+							{
+								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
+								"name": "apache-jmeter.tgz"
+							}
+						],
+						"files": [],
+						"package_install_command": "tar xzf apache-jmeter/apache-jmeter.tgz\nmv apache-jmeter/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/",
+						"installed_path": ""
+					},
+					{
+						"name": "jdk",
+						"dependencies": [],
+						"downloads": [
+							{
+								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-8u181-linux-x64.tar.gz",
+								"name": "jdk-8u181-linux-x64.tar.gz"
+							}
+						],
+						"files": [],
+						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\nmv jdk1.8.0_181/* ${BOSH_INSTALL_TARGET}/",
 						"installed_path": ""
 					}
 				],
