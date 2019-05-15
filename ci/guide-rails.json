@@ -1,0 +1,228 @@
+{
+	"metadata": {
+		"version": 1
+	},
+	"application": {
+		"name": "jmeter",
+		"language": "JAVA",
+		"artifact_store": {
+			"type": "s3",
+			"repositories": [
+				{
+					"category": "rc-packaging",
+					"bucket": "guide-rails-calculi-rc"
+				},
+				{
+					"category": "final-packaging",
+					"bucket": "guide-rails-calculi-final"
+				},
+				{
+					"category": "logs",
+					"bucket": "guide-rails-calculi-logs"
+				}
+			]
+		}
+	},
+	"pipeline": {
+		"segments": [
+			{
+				"name": "Build",
+				"segment_type": "build",
+				"job_steps": [
+					{
+						"name": "Print Env",
+						"definition": "Print Environment",
+						"command": "printenv | sort",
+						"properties": null
+					},
+					{
+						"name": "List contents",
+						"definition": "List contents",
+						"command": "ls -l\ndu -sk *",
+						"properties": null
+					}
+				],
+				"exit_actions": {
+					"default": {
+						"fetch_logs": true,
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": true,
+								"to": [
+									"",
+									""
+								],
+								"message": ""
+							}
+						],
+						"code_analysis": {
+							"publish": true,
+							"properties": null
+						},
+						"delete_instances": true
+					},
+					"on_success": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": true,
+								"to": [
+									""
+								],
+								"message": ""
+							}
+						],
+						"code_analysis": null
+					},
+					"on_failure": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": true,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": null
+					},
+					"on_abort": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": true,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": null
+					}
+				},
+				"deployment_strategy": {
+					"canary_watch_time": "",
+					"update_watch_time": "",
+					"serial": false
+				},
+				"application_init": {
+					"command": "",
+					"arguments": null
+				},
+				"packages": [
+					{
+						"name": "((application.name))",
+						"dependencies": [],
+						"downloads": [
+							{
+								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
+								"name": "((application.name))-download.tgz"
+							}
+						],
+						"files": [
+							"((application.name))*"
+						],
+						"package_install_command": "tar xzvf ((application.name))-download.tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))\nrm ((application.name))-download.tgz\n",
+						"installed_path": ""
+					}
+				],
+				"instance_tags": [
+					{
+						"name": "application.name",
+						"value": "((application.name))"
+					}
+				],
+				"post_deployment_actions": {
+					"instances": null,
+					"loadbalanced": false,
+					"loadbalancer": {
+						"TargetGroupName": "",
+						"TargetGroupPort": 0,
+						"TargetGroupProtocol": "",
+						"TargetType": "",
+						"VPCID": "",
+						"HealthCheckEnabled": false,
+						"HealthCheckPort": "",
+						"UnhealthyThresholdCount": 0
+					}
+				},
+				"cache_info": {}
+			}
+		],
+		"exit_actions": {
+			"default": {
+				"fetch_logs": true,
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": true,
+						"to": [
+							"",
+							""
+						],
+						"message": ""
+					}
+				],
+				"code_analysis": {
+					"publish": true,
+					"properties": null
+				},
+				"delete_instances": true
+			},
+			"on_success": {
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": true,
+						"to": [
+							""
+						],
+						"message": ""
+					}
+				],
+				"code_analysis": null
+			},
+			"on_failure": {
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": true,
+						"to": null,
+						"message": ""
+					}
+				],
+				"code_analysis": null
+			},
+			"on_abort": {
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": true,
+						"to": null,
+						"message": ""
+					}
+				],
+				"code_analysis": null
+			}
+		},
+		"default_properties": [
+			{
+				"name": "vendor.version",
+				"value": "5.1.1",
+				"type": "string"
+			}
+		],
+		"deployment_files": [],
+		"application_init": {
+			"command": "",
+			"arguments": null
+		},
+		"process": {
+			"init": {
+				"command": "bin/start-service.sh"
+			}
+		},
+		"releases": []
+	},
+	"organization": {
+		"orgname": "GR-Product"
+	}
+}
