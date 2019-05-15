@@ -46,6 +46,12 @@
 						"definition": "clean up ",
 						"command": "rm apache-((application.name))-((vendor.version)).tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))",
 						"properties": null
+					},
+					{
+						"name": "make shrapnel",
+						"definition": "make shrapnel",
+						"command": "touch coverage.xml results.xml ",
+						"properties": null
 					}
 				],
 				"exit_actions": {
