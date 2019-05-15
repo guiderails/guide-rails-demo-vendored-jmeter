@@ -274,7 +274,8 @@
 					}
 				},
 				"package_dependencies": [
-					"((application.name))"
+					"((application.name))",
+					"apache-jmeter"
 				],
 				"instance_tags": [
 					{
