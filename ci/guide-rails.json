@@ -120,7 +120,7 @@
 						"files": [
 							"((application.name))*"
 						],
-						"package_install_command": "tar xzvf ((application.name))-download.tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))\nrm ((application.name))-download.tgz\n",
+						"package_install_command": "ls -l\ntar xzvf ((application.name))-download.tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))\nrm ((application.name))-download.tgz\n",
 						"installed_path": ""
 					}
 				],
