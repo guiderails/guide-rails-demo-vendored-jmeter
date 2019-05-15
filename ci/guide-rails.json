@@ -30,15 +30,21 @@
 				"segment_type": "build",
 				"job_steps": [
 					{
-						"name": "Print Env",
-						"definition": "Print Environment",
-						"command": "printenv | sort",
+						"name": "Download files",
+						"definition": "Download files",
+						"command": "wget http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
 						"properties": null
 					},
 					{
-						"name": "List contents",
-						"definition": "List contents",
-						"command": "ls -l\ndu -sk *",
+						"name": "unpack files",
+						"definition": "unpack files",
+						"command": "tar xzf ((application.name))-((vendor.version)).tgz",
+						"properties": null
+					},
+					{
+						"name": "clean up ",
+						"definition": "clean up ",
+						"command": "rm apache-((application.name))-((vendor.version)).tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))",
 						"properties": null
 					}
 				],
@@ -111,16 +117,11 @@
 					{
 						"name": "((application.name))",
 						"dependencies": [],
-						"downloads": [
-							{
-								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
-								"name": "((application.name))-download.tgz"
-							}
-						],
+						"downloads": [],
 						"files": [
 							"((application.name))*"
 						],
-						"package_install_command": "ls -l\ntar xzvf ((application.name))-download.tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))\nrm ((application.name))-download.tgz\n",
+						"package_install_command": "",
 						"installed_path": ""
 					}
 				],
