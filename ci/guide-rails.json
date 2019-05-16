@@ -104,7 +104,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "set -e\nfind .\ntar xzf ((application.name))/((application.name)).tgz\nmv ((application.name))/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/.",
+						"package_install_command": "$ErrorActionPreference = \"Stop\"\nfind .\ntar xzf ((application.name))/((application.name)).tgz\nmv ((application.name))/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/.",
 						"installed_path": ""
 					},
 					{
