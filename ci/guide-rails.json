@@ -312,7 +312,7 @@
 							}
 						],
 						"code_analysis": {
-							"publish": true,
+							"publish": false,
 							"properties": null
 						},
 						"delete_instances": true
@@ -328,7 +328,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					},
 					"on_failure": {
 						"notifications": [
@@ -339,7 +342,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					},
 					"on_abort": {
 						"notifications": [
@@ -350,7 +356,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					}
 				},
 				"deployment_strategy": {
@@ -369,6 +378,10 @@
 						"command": ""
 					}
 				},
+				"package_dependencies": [
+					"((application.name))",
+					"jdk"
+				],
 				"instance_tags": [
 					{
 						"name": "application.name",
@@ -388,59 +401,7 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
-						"dependencies": [
-							{
-								"name": "jmeter",
-								"release": "jmeter",
-								"provides": [
-									{
-										"name": "consul_servers.as",
-										"value": "consul_1"
-									}
-								],
-								"consumes": [
-									{
-										"name": "consul_servers.from",
-										"value": "consul_1"
-									}
-								],
-								"properties": [
-									{
-										"name": "consul.servicename",
-										"value": "((consul.servicename))"
-									},
-									{
-										"name": "consul.environment",
-										"value": "((consul.environment))"
-									},
-									{
-										"name": "consul.datacenter",
-										"value": "((consul.datacenter))"
-									},
-									{
-										"name": "consul.server",
-										"value": "false"
-									},
-									{
-										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
-									},
-									{
-										"name": "calculi.intermediate.cert",
-										"value": "grsecret:tls.cert"
-									},
-									{
-										"name": "calculi.intermediate.key",
-										"value": "grsecret:tls.key"
-									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
-							}
-						]
+						"dependencies": []
 					}
 				],
 				"post_deployment_actions": {
@@ -526,12 +487,7 @@
 				"command": ""
 			}
 		},
-		"releases": [
-			{
-				"name": "jmeter",
-				"version": "latest"
-			}
-		]
+		"releases": []
 	},
 	"organization": {
 		"orgname": "GR-Product"
