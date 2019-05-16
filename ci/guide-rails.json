@@ -100,11 +100,11 @@
 						"downloads": [
 							{
 								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
-								"name": "apache-jmeter.tgz"
+								"name": "((application.name)).tgz"
 							}
 						],
 						"files": [],
-						"package_install_command": "set -e\ntar xzf ((application.name))/apache-jmeter.tgz\nmv ((application.name))/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/.",
+						"package_install_command": "set -e\nfind ((application.name))\ntar xzf ((application.name))/((application.name)).tgz\nmv ((application.name))/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/.",
 						"installed_path": ""
 					},
 					{
