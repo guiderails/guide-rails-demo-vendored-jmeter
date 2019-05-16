@@ -293,7 +293,7 @@
 					{
 						"name": "look around",
 						"definition": "look around",
-						"command": "ls -l ${PKG_BASE_DIR}\nls -l ${PKG_BASE_DIR}/*\nls -l ${PKG_BASE_DIR}/*/*\n${PKG_BASE_DIR}/${APPLICATION_NAME}/bin/${APPLICATION_NAME} version\n",
+						"command": "ls -l $env:PKG_BASE_DIR\nls -l $env:PKG_BASE_DIR/*\nls -l $env:PKG_BASE_DIR/*/*\n$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/$env:APPLICATION_NAME version\n\n",
 						"properties": null
 					}
 				],
