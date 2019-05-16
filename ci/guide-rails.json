@@ -401,7 +401,7 @@
 		},
 		"process": {
 			"init": {
-				"command": "bin/start-service.sh"
+				"command": "echo \"false-start\""
 			}
 		},
 		"releases": []
