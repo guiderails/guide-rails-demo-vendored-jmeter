@@ -129,7 +129,7 @@
 						"files": [
 							"((application.name))*"
 						],
-						"package_install_command": "",
+						"package_install_command": "ls -l\necho ${PWD}",
 						"installed_path": ""
 					},
 					{
