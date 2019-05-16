@@ -96,9 +96,7 @@
 				"packages": [
 					{
 						"name": "((application.name))",
-						"dependencies": [
-							"jdk"
-						],
+						"dependencies": [],
 						"downloads": [
 							{
 								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
