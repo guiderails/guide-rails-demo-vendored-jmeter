@@ -146,8 +146,8 @@
 				"cache_info": {}
 			},
 			{
-				"name": "Release",
-				"segment_type": "release",
+				"name": "Production",
+				"segment_type": "production",
 				"run_after": [
 					"Build"
 				],
@@ -259,25 +259,14 @@
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
 						"vm_type": "default",
-						"os_type": "linux-ubuntu",
+						"os_type": "windows",
 						"networks": [
 							"((deploy.target.network.release))"
 						],
 						"availability_zones": [
 							"((deploy.target.zone.release))"
 						],
-						"dependencies": [
-							{
-								"name": "consul",
-								"release": "consul",
-								"properties": [],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
-							}
-						]
+						"dependencies": []
 					}
 				],
 				"post_deployment_actions": {
