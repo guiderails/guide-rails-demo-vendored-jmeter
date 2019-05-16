@@ -297,28 +297,25 @@
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
 						"vm_type": "default",
-						"os_type": "windows",
+						"os_type": "linux-ubuntu",
 						"networks": [
 							"((deploy.target.network.release))"
 						],
 						"availability_zones": [
 							"((deploy.target.zone.release))"
 						],
-						"dependencies": []
-					},
-					{
-						"name": "((application.name))-windows",
-						"number_of_instances": 1,
-						"persistent_disk_type": "",
-						"vm_type": "default",
-						"os_type": "windows",
-						"networks": [
-							"((deploy.target.network.release))"
-						],
-						"availability_zones": [
-							"((deploy.target.zone.release))"
-						],
-						"dependencies": []
+						"dependencies": [
+							{
+								"name": "consul",
+								"release": "consul",
+								"properties": [],
+								"deployment_strategy": {
+									"canary_watch_time": "2000-60000",
+									"update_watch_time": "2000-60000",
+									"serial": false
+								}
+							}
+						]
 					}
 				],
 				"post_deployment_actions": {
@@ -404,7 +401,12 @@
 				"command": "echo \"false-start\""
 			}
 		},
-		"releases": []
+		"releases": [
+			{
+				"name": "consul",
+				"version": "latest"
+			}
+		]
 	},
 	"organization": {
 		"orgname": "GR-Product"
