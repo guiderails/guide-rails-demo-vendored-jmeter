@@ -269,6 +269,7 @@
 						"dependencies": []
 					}
 				],
+				"gated": true,
 				"post_deployment_actions": {
 					"instances": null,
 					"loadbalanced": false,
@@ -352,12 +353,7 @@
 				"command": ""
 			}
 		},
-		"releases": [
-			{
-				"name": "consul",
-				"version": "latest"
-			}
-		]
+		"releases": []
 	},
 	"organization": {
 		"orgname": "GR-Product"
