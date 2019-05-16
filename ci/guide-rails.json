@@ -476,7 +476,13 @@
 				"code_analysis": null
 			}
 		},
-		"default_properties": [],
+		"default_properties": [
+			{
+				"name": "consul.prod.joinservers",
+				"value": " ",
+				"type": "string"
+			}
+		],
 		"deployment_files": [],
 		"application_init": {
 			"command": "",
