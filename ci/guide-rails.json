@@ -28,32 +28,6 @@
 			{
 				"name": "Build",
 				"segment_type": "build",
-				"job_steps": [
-					{
-						"name": "Download files",
-						"definition": "Download files",
-						"command": "wget http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
-						"properties": null
-					},
-					{
-						"name": "unpack files",
-						"definition": "unpack files",
-						"command": "tar xzf apache-((application.name))-((vendor.version)).tgz",
-						"properties": null
-					},
-					{
-						"name": "clean up ",
-						"definition": "clean up ",
-						"command": "rm apache-((application.name))-((vendor.version)).tgz\nmv apache-((application.name))-((vendor.version)) ((application.name))",
-						"properties": null
-					},
-					{
-						"name": "make shrapnel",
-						"definition": "make shrapnel",
-						"command": "touch coverage.xml results.xml ",
-						"properties": null
-					}
-				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
@@ -69,7 +43,7 @@
 							}
 						],
 						"code_analysis": {
-							"publish": true,
+							"publish": false,
 							"properties": null
 						},
 						"delete_instances": true
@@ -125,18 +99,6 @@
 						"dependencies": [
 							"jdk"
 						],
-						"downloads": [],
-						"files": [
-							"((application.name))*"
-						],
-						"package_install_command": "",
-						"installed_path": ""
-					},
-					{
-						"name": "apache-jmeter",
-						"dependencies": [
-							"jdk"
-						],
 						"downloads": [
 							{
 								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
@@ -144,7 +106,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "tar xzf apache-jmeter/apache-jmeter.tgz\nmv apache-jmeter/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/",
+						"package_install_command": "set -e\ntar xzf ((application.name))/apache-jmeter.tgz\nmv ((application.name))/apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/.",
 						"installed_path": ""
 					},
 					{
@@ -193,7 +155,7 @@
 					{
 						"name": "Look around",
 						"definition": "Look around",
-						"command": "ls -l ${PKG_BASE_DIR}\nls -l ${PKG_BASE_DIR}/*\nls -l ${PKG_BASE_DIR}/*/*\n",
+						"command": "ls -l ${PKG_BASE_DIR}\nls -l ${PKG_BASE_DIR}/*\nls -l ${PKG_BASE_DIR}/*/*\n${PKG_BASE_DIR}/${APPLICATION_NAME}/bin/${APPLICATION_NAME} version\n",
 						"properties": null
 					}
 				],
@@ -283,7 +245,7 @@
 				},
 				"package_dependencies": [
 					"((application.name))",
-					"apache-jmeter"
+					"jdk"
 				],
 				"instance_tags": [
 					{
@@ -398,7 +360,7 @@
 		},
 		"process": {
 			"init": {
-				"command": "echo \"false-start\""
+				"command": ""
 			}
 		},
 		"releases": [
