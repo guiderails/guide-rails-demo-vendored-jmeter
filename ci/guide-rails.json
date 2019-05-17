@@ -293,7 +293,13 @@
 					{
 						"name": "List all packages",
 						"definition": "List all packages",
-						"command": "ls -l $env:PKG_BASE_DIR/*/*",
+						"command": "ls -l $env:PKG_BASE_DIR/",
+						"properties": null
+					},
+					{
+						"name": "List app package",
+						"definition": "List app package",
+						"command": "ls -l $env:PKG_BASE_DIR/$env:APPLICATION_NAME/",
 						"properties": null
 					},
 					{
