@@ -104,7 +104,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "tar xzf ((application.name))/((application.name)).tgz\nCopy-Item apache-((application.name))-((vendor.version))/* ${BOSH_INSTALL_TARGET}/ -Recurse -Force",
+						"package_install_command": "tar xzf ((application.name))/((application.name)).tgz\nCopy-Item apache-((application.name))-((vendor.version))/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force",
 						"installed_path": ""
 					},
 					{
