@@ -117,7 +117,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "Expand-Archive -Path ./jdk/openjdk.zip\n\nCopy-Item openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force",
+						"package_install_command": "Expand-Archive -Path ./jdk/openjdk.zip\nCopy-Item openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force",
 						"installed_path": ""
 					}
 				],
@@ -286,6 +286,7 @@
 			{
 				"name": "Integration",
 				"segment_type": "integration",
+				"persistent": true,
 				"run_after": [
 					"Build"
 				],
