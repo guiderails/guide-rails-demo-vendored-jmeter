@@ -112,12 +112,12 @@
 						"dependencies": [],
 						"downloads": [
 							{
-								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-8u181-linux-x64.tar.gz",
-								"name": "jdk-8u181-linux-x64.tar.gz"
+								"link": "https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u212-b03/OpenJDK8u-x64_windows_8u212b03.zip",
+								"name": "openjdk.zip"
 							}
 						],
 						"files": [],
-						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\nmv jdk1.8.0_181/* ${BOSH_INSTALL_TARGET}/",
+						"package_install_command": "Expand-Archive -Path ./jdk/openjdk.zip\n\nCopy-Item openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force",
 						"installed_path": ""
 					}
 				],
@@ -300,7 +300,7 @@
 					{
 						"name": "Sanity test",
 						"definition": "Sanity test",
-						"command": "cd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
+						"command": "Add-Path -path $env:PKG_BASE_DIR/jdk/bin\ncd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
 						"properties": null
 					}
 				],
