@@ -299,7 +299,7 @@
 					{
 						"name": "List app package",
 						"definition": "List app package",
-						"command": "ls -l \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/\"",
+						"command": "ls -l $env:PKG_BASE_DIR/jmeter",
 						"properties": null
 					},
 					{
