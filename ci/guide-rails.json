@@ -117,7 +117,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "Expand-Archive -Path ./jdk/openjdk.zip\nCopy-Item openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force",
+						"package_install_command": "New-Item $env:BOSH_INSTALL_TARGET/openjdk -ItemType Directory\nExpand-Archive -Path ./jdk/openjdk.zip -DestinationPath $env:BOSH_INSTALL_TARGET/\nCopy-Item $env:BOSH_INSTALL_TARGET/openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/openjdk/ -Recurse -Force",
 						"installed_path": ""
 					}
 				],
@@ -300,7 +300,7 @@
 					{
 						"name": "Sanity test",
 						"definition": "Sanity test",
-						"command": "$env:Path += \";$env:PKG_BASE_DIR/jdk/bin\"\ncd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
+						"command": "$env:Path += \";$env:PKG_BASE_DIR/jdk/openjdk/bin\"\ncd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
 						"properties": null
 					}
 				],
