@@ -293,7 +293,7 @@
 					{
 						"name": "look around",
 						"definition": "look around",
-						"command": "ls -l \"$env:PKG_BASE_DIR\"\nls -l \"$env:PKG_BASE_DIR/*\"\nls -l \"$env:PKG_BASE_DIR/*/*\"\n\"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/$env:APPLICATION_NAME\" version\n\n",
+						"command": "ls -l \"$env:PKG_BASE_DIR\"\nls -l \"$env:PKG_BASE_DIR/*\"\nls -l \"$env:PKG_BASE_DIR/*/*\"\ncd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
 						"properties": null
 					}
 				],
