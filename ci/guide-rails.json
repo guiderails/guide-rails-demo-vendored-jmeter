@@ -293,7 +293,7 @@
 					{
 						"name": "look around",
 						"definition": "look around",
-						"command": "ls -l \"$env:PKG_BASE_DIR\"\nls -l \"$env:PKG_BASE_DIR/*\"\nls -l \"$env:PKG_BASE_DIR/*/*\"\ncd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
+						"command": "cd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
 						"properties": null
 					}
 				],
@@ -479,6 +479,21 @@
 		"default_properties": [
 			{
 				"name": "consul.prod.joinservers",
+				"value": " ",
+				"type": "string"
+			},
+			{
+				"name": "dd.tags",
+				"value": " ",
+				"type": "string"
+			},
+			{
+				"name": "log.options",
+				"value": " ",
+				"type": "string"
+			},
+			{
+				"name": "log.paths",
 				"value": " ",
 				"type": "string"
 			}
