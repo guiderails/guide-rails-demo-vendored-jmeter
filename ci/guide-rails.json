@@ -291,8 +291,14 @@
 				],
 				"job_steps": [
 					{
-						"name": "look around",
-						"definition": "look around",
+						"name": "List all packages",
+						"definition": "List all packages",
+						"command": "ls -l $env:PKG_BASE_DIR/*/*",
+						"properties": null
+					},
+					{
+						"name": "Sanity test",
+						"definition": "Sanity test",
 						"command": "cd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
 						"properties": null
 					}
