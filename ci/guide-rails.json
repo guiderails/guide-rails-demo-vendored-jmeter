@@ -151,9 +151,15 @@
 				],
 				"job_steps": [
 					{
-						"name": "Look around",
-						"definition": "Look around",
-						"command": "ls ${PKG_BASE_DIR}/*\nls ${PKG_BASE_DIR}/*/*\n\n${PKG_BASE_DIR}/${APPLICATION_NAME}/bin/${APPLICATION_NAME} -v\n",
+						"name": "List app package",
+						"definition": "List app package",
+						"command": "ls -l $env:PKG_BASE_DIR/jmeter",
+						"properties": null
+					},
+					{
+						"name": "Sanity test",
+						"definition": "Sanity test",
+						"command": "$env:Path += \";$env:PKG_BASE_DIR/jdk/openjdk/bin\"\ncd \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/bin/\"\n./jmeter -v\n\n",
 						"properties": null
 					}
 				],
@@ -286,7 +292,6 @@
 			{
 				"name": "Integration",
 				"segment_type": "integration",
-				"persistent": true,
 				"run_after": [
 					"Build"
 				],
