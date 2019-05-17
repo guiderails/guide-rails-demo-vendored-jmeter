@@ -514,6 +514,11 @@
 				"name": "log.paths",
 				"value": " ",
 				"type": "string"
+			},
+			{
+				"name": "centos.release.build",
+				"value": "false",
+				"type": "boolean"
 			}
 		],
 		"deployment_files": [],
