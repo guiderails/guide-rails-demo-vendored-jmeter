@@ -153,7 +153,7 @@
 					{
 						"name": "Look around",
 						"definition": "Look around",
-						"command": "ls -l ${PKG_BASE_DIR}\nls -l ${PKG_BASE_DIR}/*\nls -l ${PKG_BASE_DIR}/*/*\n${PKG_BASE_DIR}/${APPLICATION_NAME}/bin/${APPLICATION_NAME} version\n",
+						"command": "Set-PSDebug -Trace 1\n\nls -l ${PKG_BASE_DIR}\nls -l ${PKG_BASE_DIR}/*\n\n${PKG_BASE_DIR}/${APPLICATION_NAME}-Integration/bin/${APPLICATION_NAME} -v\n",
 						"properties": null
 					}
 				],
