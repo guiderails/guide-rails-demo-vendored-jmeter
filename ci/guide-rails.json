@@ -408,7 +408,18 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
-						"dependencies": []
+						"dependencies": [
+							{
+								"name": "enable_ssh",
+								"release": "windows-utilities",
+								"properties": [],
+								"deployment_strategy": {
+									"canary_watch_time": "2000-60000",
+									"update_watch_time": "2000-60000",
+									"serial": false
+								}
+							}
+						]
 					}
 				],
 				"post_deployment_actions": {
@@ -515,7 +526,12 @@
 				"command": ""
 			}
 		},
-		"releases": []
+		"releases": [
+			{
+				"name": "windows-utilities",
+				"version": "latest"
+			}
+		]
 	},
 	"organization": {
 		"orgname": "GR-Product"
