@@ -524,6 +524,11 @@
 				"name": "centos.release.build",
 				"value": "false",
 				"type": "boolean"
+			},
+			{
+				"name": "vendor.version",
+				"value": "5.1.1",
+				"type": "string"
 			}
 		],
 		"deployment_files": [],
