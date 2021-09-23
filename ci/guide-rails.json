@@ -1,6 +1,6 @@
 {
 	"metadata": {
-		"version": 1
+		"version": 2
 	},
 	"application": {
 		"name": "jmeter",
@@ -31,27 +31,18 @@
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						},
 						"delete_instances": true
 					},
 					"on_success": {
-						"notifications": [
-						],
 						"code_analysis": null
 					},
 					"on_failure": {
-						"notifications": [
-						],
 						"code_analysis": null
 					},
 					"on_abort": {
-						"notifications": [
-						],
 						"code_analysis": null
 					}
 				},
@@ -60,36 +51,27 @@
 					"update_watch_time": "",
 					"serial": false
 				},
-				"application_init": {
-					"command": "",
-					"arguments": null
-				},
+				"application_init": {},
 				"packages": [
 					{
 						"name": "((application.name))",
-						"dependencies": [],
 						"downloads": [
 							{
 								"link": "http://apache.cs.utah.edu/jmeter/binaries/apache-((application.name))-((vendor.version)).tgz",
 								"name": "((application.name)).tgz"
 							}
 						],
-						"files": [],
-						"package_install_command": "tar xzf ((application.name))/((application.name)).tgz\nCopy-Item apache-((application.name))-((vendor.version))/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force",
-						"installed_path": ""
+						"package_install_command": "tar xzf ((application.name))/((application.name)).tgz\nCopy-Item apache-((application.name))-((vendor.version))/* $env:BOSH_INSTALL_TARGET/ -Recurse -Force"
 					},
 					{
 						"name": "jdk",
-						"dependencies": [],
 						"downloads": [
 							{
 								"link": "https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u212-b03/OpenJDK8u-x64_windows_8u212b03.zip",
 								"name": "openjdk.zip"
 							}
 						],
-						"files": [],
-						"package_install_command": "New-Item $env:BOSH_INSTALL_TARGET/openjdk -ItemType Directory\nExpand-Archive -Path ./jdk/openjdk.zip -DestinationPath $env:BOSH_INSTALL_TARGET/\nCopy-Item $env:BOSH_INSTALL_TARGET/openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/openjdk/ -Recurse -Force",
-						"installed_path": ""
+						"package_install_command": "New-Item $env:BOSH_INSTALL_TARGET/openjdk -ItemType Directory\nExpand-Archive -Path ./jdk/openjdk.zip -DestinationPath $env:BOSH_INSTALL_TARGET/\nCopy-Item $env:BOSH_INSTALL_TARGET/openjdk-8u212-b03/* $env:BOSH_INSTALL_TARGET/openjdk/ -Recurse -Force"
 					}
 				],
 				"instance_tags": [
@@ -99,18 +81,7 @@
 					}
 				],
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
-					}
+					"loadbalancer": {}
 				},
 				"cache_info": {}
 			},
@@ -137,37 +108,25 @@
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						},
 						"delete_instances": false
 					},
 					"on_success": {
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						},
 						"delete_instances": false
 					},
 					"on_failure": {
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						},
 						"delete_instances": false
 					},
 					"on_abort": {
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						},
 						"delete_instances": false
@@ -180,14 +139,9 @@
 					"update_watch_time": "5000-30000",
 					"serial": false
 				},
-				"application_init": {
-					"command": "",
-					"arguments": null
-				},
+				"application_init": {},
 				"process": {
-					"init": {
-						"command": ""
-					}
+					"init": {}
 				},
 				"package_dependencies": [
 					"((application.name))",
@@ -205,33 +159,23 @@
 						"number_of_instances": 1,
 						"cloud_provider_type": "aws",
 						"cloud_provider_name": "guide-rails",
-						"persistent_disk_type": "",
 						"vm_type": "default",
-						"os_type": "windows",
+						"os_type": "default",
 						"networks": [
-							"((deploy.target.network.release))"
+							"production"
 						],
 						"availability_zones": [
-							"((deploy.target.zone.release))"
+							"default"
 						],
+						"deployment_strategy": {},
 						"dependencies": []
 					}
 				],
 				"gated": true,
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
-					}
-				}
+					"loadbalancer": {}
+				},
+				"deployment_target": 1
 			},
 			{
 				"name": "Integration",
@@ -256,35 +200,23 @@
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						},
 						"delete_instances": true
 					},
 					"on_success": {
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						}
 					},
 					"on_failure": {
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						}
 					},
 					"on_abort": {
-						"notifications": [
-						],
 						"code_analysis": {
-							"publish": false,
 							"properties": null
 						}
 					}
@@ -296,14 +228,9 @@
 					"update_watch_time": "5000-30000",
 					"serial": false
 				},
-				"application_init": {
-					"command": "",
-					"arguments": null
-				},
+				"application_init": {},
 				"process": {
-					"init": {
-						"command": ""
-					}
+					"init": {}
 				},
 				"package_dependencies": [
 					"((application.name))",
@@ -321,50 +248,39 @@
 						"number_of_instances": 1,
 						"cloud_provider_type": "aws",
 						"cloud_provider_name": "guide-rails",
-						"persistent_disk_type": "",
 						"vm_type": "default",
-						"os_type": "windows",
+						"os_type": "default",
 						"networks": [
-							"((deploy.target.network.integration))"
+							"integration"
 						],
 						"availability_zones": [
-							"((deploy.target.zone.integration))"
+							"default"
 						],
+						"deployment_strategy": {},
 						"dependencies": [
 							{
 								"name": "enable_ssh",
 								"release": "windows-utilities",
-								"properties": [],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								"properties": []
 							}
 						]
 					}
 				],
 				"post_deployment_actions": {
-					"instances": null,
-					"loadbalanced": false,
-					"loadbalancer": {
-						"TargetGroupName": "",
-						"TargetGroupPort": 0,
-						"TargetGroupProtocol": "",
-						"TargetType": "",
-						"VPCID": "",
-						"HealthCheckEnabled": false,
-						"HealthCheckPort": "",
-						"UnhealthyThresholdCount": 0
+					"loadbalancer": {}
+				},
+				"deployment_target": 1,
+				"releases": [
+					{
+						"name": "windows-utilities",
+						"version": "latest"
 					}
-				}
+				]
 			}
 		],
 		"exit_actions": {
 			"default": {
 				"fetch_logs": true,
-				"notifications": [
-				],
 				"code_analysis": {
 					"publish": true,
 					"properties": null
@@ -372,22 +288,21 @@
 				"delete_instances": true
 			},
 			"on_success": {
-				"notifications": [
-				],
 				"code_analysis": null
 			},
 			"on_failure": {
-				"notifications": [
-				],
 				"code_analysis": null
 			},
 			"on_abort": {
-				"notifications": [
-				],
 				"code_analysis": null
 			}
 		},
 		"default_properties": [
+			{
+				"name": "centos.release.build",
+				"value": "false",
+				"type": "boolean"
+			},
 			{
 				"name": "consul.prod.joinservers",
 				"value": " ",
@@ -409,32 +324,16 @@
 				"type": "string"
 			},
 			{
-				"name": "centos.release.build",
-				"value": "false",
-				"type": "boolean"
-			},
-			{
 				"name": "vendor.version",
 				"value": "5.1.1",
 				"type": "string"
 			}
 		],
 		"deployment_files": [],
-		"application_init": {
-			"command": "",
-			"arguments": null
-		},
+		"application_init": {},
 		"process": {
-			"init": {
-				"command": ""
-			}
-		},
-		"releases": [
-			{
-				"name": "windows-utilities",
-				"version": "latest"
-			}
-		]
+			"init": {}
+		}
 	},
 	"organization": {
 		"orgname": "GR-Product"
