@@ -32,15 +32,6 @@
 					"default": {
 						"fetch_logs": true,
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": [
-									"",
-									""
-								],
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -50,36 +41,16 @@
 					},
 					"on_success": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": [
-									""
-								],
-								"message": ""
-							}
 						],
 						"code_analysis": null
 					},
 					"on_failure": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": null,
-								"message": ""
-							}
 						],
 						"code_analysis": null
 					},
 					"on_abort": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": null,
-								"message": ""
-							}
 						],
 						"code_analysis": null
 					}
@@ -167,15 +138,6 @@
 					"default": {
 						"fetch_logs": true,
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": [
-									"",
-									""
-								],
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -185,14 +147,6 @@
 					},
 					"on_success": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": [
-									""
-								],
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -202,12 +156,6 @@
 					},
 					"on_failure": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": null,
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -217,12 +165,6 @@
 					},
 					"on_abort": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": null,
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -261,6 +203,8 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
+						"cloud_provider_type": "aws",
+						"cloud_provider_name": "guide-rails",
 						"persistent_disk_type": "",
 						"vm_type": "default",
 						"os_type": "windows",
@@ -313,15 +257,6 @@
 					"default": {
 						"fetch_logs": true,
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": [
-									"",
-									""
-								],
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -331,14 +266,6 @@
 					},
 					"on_success": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": [
-									""
-								],
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -347,12 +274,6 @@
 					},
 					"on_failure": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": null,
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -361,12 +282,6 @@
 					},
 					"on_abort": {
 						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": true,
-								"to": null,
-								"message": ""
-							}
 						],
 						"code_analysis": {
 							"publish": false,
@@ -404,6 +319,8 @@
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
+						"cloud_provider_type": "aws",
+						"cloud_provider_name": "guide-rails",
 						"persistent_disk_type": "",
 						"vm_type": "default",
 						"os_type": "windows",
@@ -447,15 +364,6 @@
 			"default": {
 				"fetch_logs": true,
 				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": true,
-						"to": [
-							"",
-							""
-						],
-						"message": ""
-					}
 				],
 				"code_analysis": {
 					"publish": true,
@@ -465,36 +373,16 @@
 			},
 			"on_success": {
 				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": true,
-						"to": [
-							""
-						],
-						"message": ""
-					}
 				],
 				"code_analysis": null
 			},
 			"on_failure": {
 				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": true,
-						"to": null,
-						"message": ""
-					}
 				],
 				"code_analysis": null
 			},
 			"on_abort": {
 				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": true,
-						"to": null,
-						"message": ""
-					}
 				],
 				"code_analysis": null
 			}
