@@ -88,6 +88,7 @@
 			{
 				"name": "Production",
 				"segment_type": "production",
+				"persistent": true,
 				"run_after": [
 					"Integration"
 				],
@@ -159,7 +160,7 @@
 						"number_of_instances": 1,
 						"cloud_provider_type": "aws",
 						"cloud_provider_name": "guide-rails",
-						"vm_type": "default",
+						"vm_type": "windows-small",
 						"os_type": "windows2012R2",
 						"networks": [
 							"production"
@@ -249,7 +250,7 @@
 						"number_of_instances": 1,
 						"cloud_provider_type": "aws",
 						"cloud_provider_name": "guide-rails",
-						"vm_type": "default",
+						"vm_type": "windows-small",
 						"os_type": "windows2012R2",
 						"networks": [
 							"integration"
